@@ -22,7 +22,9 @@ Route::get('/dashboard',function(){
     return view('dashboard');
 });
 
-    Route::resource('/customer' , 'Customer');
+Route::resource('/services' , 'Services');
+Route::resource('/packages' , 'Packages');
+Route::resource('/customer' , 'Customer');
 Auth::routes();
 Route::get('/home','HomeController@index');
 

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Service;
 
-class Customer extends Controller
+class Services extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class Customer extends Controller
      */
     public function index()
     {
-        return view('customers.manage-customer');
+        //
+        return view('services');
     }
 
     /**
@@ -23,7 +25,7 @@ class Customer extends Controller
      */
     public function create()
     {
-        return view('customers.add-customer');
+        //
     }
 
     /**
@@ -35,7 +37,22 @@ class Customer extends Controller
     public function store(Request $request)
     {
         //
+        // return view('welcome');
+        $this->validate($request,[
+            'service_name'=>'required',
+            'price'=>'required',
+            'estimated_time'=>'required'
+        ]);
 
+        $service = new Service;
+        $service->service_name = $request->input('service_name');
+        $service->price = $request->input('price');
+        $service->estimated_time = $request->input('estimated_time');
+        $service->save();
+
+        return redirect('/dashboard')->with('success','Post Created');
+
+        
     }
 
     /**

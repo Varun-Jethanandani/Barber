@@ -41,6 +41,22 @@
                 </a>
             </li>
 
+            <li class="nav-item start {{Request::is('services') ? 'open active' : ''}}">
+                <a href="/services" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Add Services</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+
+            <li class="nav-item start {{Request::is('packages') ? 'open active' : ''}}">
+                <a href="/packages" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Add Packages</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+
             <!-- END OF DASHBOARD PILL -->
             <!-- Teacher Pills -->
                             <li class="nav-item  {{ Request::is('teacher*') ? 'open active' : '' }}">

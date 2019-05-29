@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    {{-- Select 2 --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -76,5 +80,11 @@
             @yield('content')
         </main>
     </div>
+    <script>
+        $("#supplier_id").select2({
+            multiple: true,//multiple options can be selected from the combobox at the same time
+            placeholder: 'Select...',
+        });
+    </script>
 </body>
 </html>

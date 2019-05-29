@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Customer extends Controller
+class Packages extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,8 @@ class Customer extends Controller
      */
     public function index()
     {
-        return view('customers.manage-customer');
+        //
+        return view('packages');
     }
 
     /**
@@ -23,7 +24,7 @@ class Customer extends Controller
      */
     public function create()
     {
-        return view('customers.add-customer');
+        //
     }
 
     /**
@@ -35,7 +36,6 @@ class Customer extends Controller
     public function store(Request $request)
     {
         //
-
     }
 
     /**
