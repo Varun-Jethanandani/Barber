@@ -14,5 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login','WebUserController@login');
-Route::get('/dashboard','WebUserController@dashboard');
+// Route::get('/login','WebUserController@login');
+// Route::get('/dashboard','WebUserController@dashboard');
+Auth::routes();
+Route::get('/dashboard',function(){
+    return view('dashboard');
+});
+
+
+    Route::resource('/customer' , 'Customer');
