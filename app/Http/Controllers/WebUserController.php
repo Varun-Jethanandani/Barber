@@ -102,9 +102,9 @@ class WebUserController extends Controller
         }
     }
 
-    public function login(){
-        return view('login');
-    }
+    // public function login(){
+    //     return view('login');
+    // }
 
     public function dashboard(Request $request){
         $email = $request->input('email');
@@ -118,7 +118,7 @@ class WebUserController extends Controller
             $role_type = DB::table('role_types')->where('role_type_id',$role_type_id)->first();
 
             $user->role_type_name = $role_type->role_type_name;
-            return view('dashboard')->with($user);
+            // return view('dashboard')->with('user',$user);
             // return new UserResource($user,$role_type->role_type_name);
         }
 
