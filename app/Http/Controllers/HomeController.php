@@ -31,6 +31,6 @@ class HomeController extends Controller
         $role_type_id = $role->role_type_id;
         $role_type = DB::table('role_types')->where('role_type_id',$role_type_id)->first();
         $user->role_type_name = $role_type->role_type_name;
-        return view('home')->with('user',$user);
+        return view('dashboard')->with('user',$user);
     }
 }
