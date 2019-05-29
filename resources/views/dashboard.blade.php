@@ -1,6 +1,5 @@
+
 @extends('layouts.base')
-
-
 
 @section('page-content')
     <div class="page-bar ">
