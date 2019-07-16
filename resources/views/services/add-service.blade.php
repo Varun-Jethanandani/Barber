@@ -26,7 +26,7 @@
         <!-- END PAGE TITLE-->
 
 
-        <form action="{{ route('packages.store') }}" method="POST">
+        <form action="{{ route('services.store') }}" method="POST">
             @csrf
             <div class="row">
 
@@ -40,15 +40,27 @@
                 </div>
 
                 <div class="form-group col-md-6 @error('price') has-error @enderror">
-                    <label class="control-label col-md-2">Services <span class="required"> * </span></label>
-
-                    <select name="supplier_id[]" id="supplier_id" class="form-control" multiple="multiple">
-                    </select>
+                    <label for="price" class="@error('price') text-danger @enderror">Price : </label>
+                    @error('email')
+                    <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    <input type="text" name="price" placeholder="Enter the price : " value="{{ old('price') }}"
+                           class="form-control">
                 </div>
 
-                
+                <div class="form-group col-md-6 @error('estimated_time') has-error @enderror">
+                    <label for="estimated_time" class="@error('estimated_time') text-danger @enderror">Estimated Time : </label>
+                    @error('phone_number')
+                    <small class="text-danger">{{ $message }}</small>
+                    @enderror
+                    <input type="text" name="estimated_time" placeholder="Enter the estimated time for service : "
+                           value="{{ old('estimated_time') }}" class="form-control">
+                </div>
+            </div>
 
-            
+            <div class="pull-right margin-right-10 margin-bottom-25">
+                <button class="btn blue" type="submit" id="add">Add Service</button>
+            </div>
         </form>
 
     </div>

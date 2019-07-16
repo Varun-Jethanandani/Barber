@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Service;
+use App\Package;
+use App\PackageService;
+use DB;
 class Packages extends Controller
 {
     /**
@@ -14,7 +17,9 @@ class Packages extends Controller
     public function index()
     {
         //
-        return view('packages');
+        $services = Service::all();
+
+        return view('packages.add-package')->with('services',$services);
     }
 
     /**
@@ -36,6 +41,35 @@ class Packages extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'package_name'=>'required',
+            'price'=>'required',
+            // 'service[]'=>'required'
+        ]);
+
+        $package = new Package;
+        $package->package_name = $request->input('package_name');
+        $package->package_price = $request->input('price');
+        $package->save();
+
+        $package=DB::table('packages')->orderBy('package_id', 'DESC')->first();    
+        $services =  $request->input('service');
+        // $data = array();
+        if(is_array($services) || is_object($services)){
+            foreach($services as $service){
+                // array_push($data,array('package_id'=>$package->package_id , 'service_id'=>$service));
+                // DB::table('package_services')->insertGetId(['package_id'=>$package->package_id , 'service_id'=>$service]);     
+                $package_service = new PackageService;
+                $package_service->package_id = $package->package_id;
+                $package_service->service_id = $service;
+                $package_service->save();
+            }
+            
+        }
+        // var_dump($data);
+        // $data = json_encode($data);
+        // DB::table('package_services')->insertGetId($data);
+        return redirect('/dashboard');    
     }
 
     /**

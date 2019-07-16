@@ -15,7 +15,7 @@ class AddFieldOfSpecializationToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('field_of_specialization');
+            $table->string('field_of_specialization')->nullable();
 
         });
     }

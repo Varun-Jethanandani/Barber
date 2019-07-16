@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PackageServices extends Migration
+class AddTimestampsToPackages extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class PackageServices extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('package_services', function (Blueprint $table) {
-
-            $table->bigIncrements('id');
-            $table->integer('package_id');
-            $table->integer('service_id');
+        Schema::table('packages', function (Blueprint $table) {
+            //
             $table->timestamps();
+
         });
     }
 
@@ -30,7 +27,8 @@ class PackageServices extends Migration
      */
     public function down()
     {
-        //
-        
+        Schema::table('packages', function (Blueprint $table) {
+            //
+        });
     }
 }

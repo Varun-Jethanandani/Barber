@@ -15,7 +15,7 @@ class Services extends Controller
     public function index()
     {
         //
-        return view('services');
+        return view('services.add-service');
     }
 
     /**
@@ -36,8 +36,7 @@ class Services extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // return view('welcome');
+        
         $this->validate($request,[
             'service_name'=>'required',
             'price'=>'required',
@@ -50,7 +49,7 @@ class Services extends Controller
         $service->estimated_time = $request->input('estimated_time');
         $service->save();
 
-        return redirect('/dashboard')->with('success','Post Created');
+        return redirect('/dashboard');
 
         
     }

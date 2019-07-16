@@ -59,7 +59,7 @@
 
             <!-- END OF DASHBOARD PILL -->
             <!-- Teacher Pills -->
-                            <li class="nav-item  {{ Request::is('teacher*') ? 'open active' : '' }}">
+            <li class="nav-item  {{ Request::is('teacher*') ? 'open active' : '' }}">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="fa fa-user"></i>
                     <span class="title">Customer</span>
